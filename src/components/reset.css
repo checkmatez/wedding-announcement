@@ -212,7 +212,6 @@ html {
 body {
   color: hsla(0, 0%, 100%, 1);
   background-color: hsla(201, 55%, 14%, 1);
-  /* color: hsla(0, 0%, 0%, 0.8); */
   font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;

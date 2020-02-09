@@ -1,3 +1,5 @@
+import 'typeface-bad-script'
+import '../components/reset.css'
 import * as React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -17,7 +19,6 @@ const Hero = styled.div`
   min-width: 100%;
   overflow: hidden;
   z-index: 1;
-  margin-bottom: 3rem;
 `
 
 const StyledHeader = styled.header`
@@ -26,6 +27,11 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
 `
 
 const Footer = styled.footer`
@@ -41,22 +47,20 @@ const Footer = styled.footer`
 
 const Grid = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  padding: 0 40px;
 `
 
 const Column = styled.div`
   flex: 1;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-`
-
-const Image = styled(Img)`
-  border-radius: 10px;
-  max-width: 800px;
+  margin-top: 3rem;
+  padding: 0 10px;
 `
 
 const Header = styled.h1`
@@ -65,244 +69,61 @@ const Header = styled.h1`
   text-transform: uppercase;
 `
 
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`
+
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const IndexPage: React.FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      logo: file(relativePath: { eq: "rings.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaHappyStPeterburg: file(
-        relativePath: { eq: "alena-happy-st-peterburg.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaOpenPresents: file(relativePath: { eq: "alena-open-presents.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaScyscraper: file(relativePath: { eq: "alena-scyscraper.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaSnowwhite: file(relativePath: { eq: "alena-snowwhite.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaSwing: file(relativePath: { eq: "alena-swing.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaTouchingChicken: file(
-        relativePath: { eq: "alena-touching-chicken.png" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaWithCat1: file(relativePath: { eq: "alena-with-cat-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      alenaWithCat2: file(relativePath: { eq: "alena-with-cat-2.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      catGuiltyPlaying: file(relativePath: { eq: "cat-guilty-playing.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      catPosing: file(relativePath: { eq: "cat-posing.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      catSmall: file(relativePath: { eq: "cat-small.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      maxArcher: file(relativePath: { eq: "max-archer.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      maxDriving: file(relativePath: { eq: "max-driving.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      maxPalm: file(relativePath: { eq: "max-palm.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      maxPotter: file(relativePath: { eq: "max-potter.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherFeedingDucks: file(
-        relativePath: { eq: "together-feeding-ducks.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherAfimall: file(relativePath: { eq: "together-afimall.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherSelfieFlowers: file(
-        relativePath: { eq: "together-selfie-flowers.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherStPeterburg: file(
-        relativePath: { eq: "together-st-peterburg.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherTipsHat: file(relativePath: { eq: "together-tips-hat.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherHappyFaces: file(
-        relativePath: { eq: "together-happy-faces.png" }
-      ) {
-        publicURL
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      togetherOffendedMp4: file(relativePath: { eq: "together-offended.mp4" }) {
-        publicURL
-      }
-      togetherClouds: file(relativePath: { eq: "together-clouds.jpeg" }) {
-        publicURL
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      proposalMp4: file(relativePath: { eq: "proposal.mp4" }) {
-        publicURL
-      }
-    }
-  `)
+  const data = useStaticQuery(indexPageQuery)
 
   return (
     <div>
       <SEO title="Home" />
-      <main
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%',
-        }}
-      >
+      <Main>
         <Hero>
           <StyledHeader>
-            <div
+            <Link
+              to="/"
               style={{
+                color: `white`,
+                textDecoration: `none`,
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '1rem 0',
               }}
             >
-              <Link
-                to="/"
+              <Img
+                fluid={data.logo.childImageSharp.fixed}
                 style={{
-                  color: `white`,
-                  textDecoration: `none`,
-                  display: 'flex',
-                  flexDirection: 'row',
+                  width: '60px',
+                  height: '60px',
+                  marginLeft: '20px',
+                  marginRight: '20px',
+                  objectFit: 'contain',
                 }}
-              >
-                <Img
-                  fluid={data.logo.childImageSharp.fluid}
-                  style={{ width: '40px', height: '40px', marginRight: '20px' }}
-                />
+                imgStyle={{ objectFit: 'contain' }}
+              />
+              <Center>
                 <h1
                   style={{
                     margin: 0,
                     fontFamily: `Bad Script`,
                     letterSpacing: '2px',
+                    lineHeight: '3rem',
                   }}
                 >
                   {data.site.siteMetadata.title}
                 </h1>
-              </Link>
-            </div>
+              </Center>
+            </Link>
           </StyledHeader>
           <video
             preload="auto"
@@ -426,7 +247,8 @@ const IndexPage: React.FC = () => {
             loop
             poster={data.togetherHappyFaces}
             style={{
-              width: '800px',
+              width: '100%',
+              maxWidth: '800px',
               borderRadius: '10px',
             }}
           >
@@ -434,7 +256,7 @@ const IndexPage: React.FC = () => {
             <source src={data.togetherOffendedMp4.publicURL} type="video/mp4" />
           </video>
         </Column>
-      </main>
+      </Main>
       <Footer>
         <div
           style={{
@@ -450,5 +272,194 @@ const IndexPage: React.FC = () => {
     </div>
   )
 }
+
+const indexPageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    logo: file(relativePath: { eq: "rings.png" }) {
+      childImageSharp {
+        fixed(width: 60, height: 60) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    alenaHappyStPeterburg: file(
+      relativePath: { eq: "alena-happy-st-peterburg.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaOpenPresents: file(relativePath: { eq: "alena-open-presents.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaScyscraper: file(relativePath: { eq: "alena-scyscraper.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaSnowwhite: file(relativePath: { eq: "alena-snowwhite.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaSwing: file(relativePath: { eq: "alena-swing.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaTouchingChicken: file(
+      relativePath: { eq: "alena-touching-chicken.png" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaWithCat1: file(relativePath: { eq: "alena-with-cat-1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    alenaWithCat2: file(relativePath: { eq: "alena-with-cat-2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catGuiltyPlaying: file(relativePath: { eq: "cat-guilty-playing.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catPosing: file(relativePath: { eq: "cat-posing.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catSmall: file(relativePath: { eq: "cat-small.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxArcher: file(relativePath: { eq: "max-archer.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxDriving: file(relativePath: { eq: "max-driving.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxPalm: file(relativePath: { eq: "max-palm.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxPotter: file(relativePath: { eq: "max-potter.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherFeedingDucks: file(
+      relativePath: { eq: "together-feeding-ducks.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherAfimall: file(relativePath: { eq: "together-afimall.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherSelfieFlowers: file(
+      relativePath: { eq: "together-selfie-flowers.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherStPeterburg: file(
+      relativePath: { eq: "together-st-peterburg.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherTipsHat: file(relativePath: { eq: "together-tips-hat.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherHappyFaces: file(relativePath: { eq: "together-happy-faces.png" }) {
+      publicURL
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    togetherOffendedMp4: file(relativePath: { eq: "together-offended.mp4" }) {
+      publicURL
+    }
+    togetherClouds: file(relativePath: { eq: "together-clouds.jpeg" }) {
+      publicURL
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    proposalMp4: file(relativePath: { eq: "proposal.mp4" }) {
+      publicURL
+    }
+  }
+`
 
 export default IndexPage
