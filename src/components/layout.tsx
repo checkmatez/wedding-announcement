@@ -11,7 +11,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import BackgroundSection from './background-section'
 import Header from './header'
 // import './layout.css'
-import 'typeface-bad-script'
 import styled from 'styled-components'
 
 const Footer = styled.footer`

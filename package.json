@@ -24,7 +24,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.7",
-    "gatsby-background-image": "^0.9.13",
+    "gatsby-background-image": "^0.10.2",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
@@ -40,8 +40,6 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.0.0",
-    "typeface-bad-script": "^0.0.72",
-    "typeface-great-vibes": "^0.0.72",
     "typescript": "^3.7.5"
   },
   "devDependencies": {

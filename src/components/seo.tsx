@@ -17,10 +17,10 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
+  title,
   description = '',
   lang = 'ru',
   meta = [],
-  title,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -43,7 +43,7 @@ const SEO: React.FC<SEOProps> = ({
       htmlAttributes={{
         lang,
       }}
-      title={site.siteMetadata.title}
+      title={title ?? site.siteMetadata.title}
       // titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -79,7 +79,12 @@ const SEO: React.FC<SEOProps> = ({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link
+        href="https://fonts.googleapis.com/css?family=Bad+Script|Caveat|Marck+Script|Pacifico&display=swap&subset=cyrillic,cyrillic-ext"
+        rel="stylesheet"
+      />
+    </Helmet>
   )
 }
 

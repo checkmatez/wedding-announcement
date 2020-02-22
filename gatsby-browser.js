@@ -9,8 +9,8 @@
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
   if (!(`IntersectionObserver` in window)) {
-    // TODO
-    // import(`intersection-observer`)
+    // eslint-disable-next-line
+    import(`intersection-observer`)
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }

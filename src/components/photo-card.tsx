@@ -29,8 +29,8 @@ const Wrapper = styled.div`
   align-items: center;
   position: absolute;
   z-index: 10;
-  background-color: hsla(0, 0%, 0%, 0.3);
-  padding-bottom: 5px;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  height: 40px;
   top: 0px;
   left: 0px;
   right: 0px;
@@ -41,6 +41,7 @@ const Wrapper = styled.div`
 const Paragraph = styled.p`
   font-weight: bold;
   font-size: 1.5rem;
+  text-shadow: 1px 1px 2px black;
   margin: 0;
 `
 

@@ -1,13 +1,33 @@
-import 'typeface-bad-script'
-import '../components/reset.css'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
-import { useStaticQuery, graphql } from 'gatsby'
-import { Link } from 'gatsby'
 
 import { PhotoCard } from '../components/photo-card'
+import '../components/reset.css'
 import SEO from '../components/seo'
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  height: 40px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`
+
+const Paragraph = styled.p`
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px black;
+  margin: 0;
+`
 
 const Hero = styled.div`
   position: relative;
@@ -29,7 +49,7 @@ const StyledHeader = styled.header`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
 `
 
 const StyledLink = styled(Link)`
@@ -93,11 +113,11 @@ const IndexPage: React.FC = () => {
 
   return (
     <div>
-      <SEO title="Home" />
+      <SEO title="Свадьба" />
       <StyledHeader>
         <StyledLink to="/">
           <Img
-            fluid={data.logo.childImageSharp.fixed}
+            fixed={data.logo.childImageSharp.fixed}
             style={{
               width: '50px',
               height: '50px',
@@ -128,7 +148,7 @@ const IndexPage: React.FC = () => {
             muted
             autoPlay
             loop
-            poster={data.togetherHappyFaces}
+            poster={data.togetherHappyFaces.childImageSharp.fluid}
             style={{
               position: 'absolute',
               top: '50%',
@@ -141,7 +161,6 @@ const IndexPage: React.FC = () => {
               height: 'auto',
             }}
           >
-            <source src="img/video/video.webm" type="video/webm" />
             <source src={data.proposalMp4.publicURL} type="video/mp4" />
           </video>
         </Hero>
@@ -157,46 +176,46 @@ const IndexPage: React.FC = () => {
               fluid={data.maxAda.childImageSharp.fluid}
             />
             <PhotoCard
-              title="курит сигары"
+              title="курит сигары 🚬"
               fluid={data.maxCigar.childImageSharp.fluid}
             />
             <PhotoCard
-              title="гоняет на джипах"
+              title="гоняет на джипах 🚗"
               fluid={data.maxDriving.childImageSharp.fluid}
             />
             <PhotoCard
-              title="Гарри Поттер"
+              title="Гарри Поттер 🧙‍♂️"
               fluid={data.maxPotter.childImageSharp.fluid}
             />
             <PhotoCard
-              title="прогуливается"
+              title="прогуливается 🚶‍♂️"
               fluid={data.maxPalm.childImageSharp.fluid}
             />
           </Column>
           <Column>
             <Header>Она 💃</Header>
             <PhotoCard
-              title="с цветочками"
+              title="с цветочками 🌺"
               fluid={data.alenaFlowers.childImageSharp.fluid}
             />
             <PhotoCard
-              title="радуется солнышку"
+              title="радуется солнышку ☀️"
               fluid={data.alenaKazanskiySobor.childImageSharp.fluid}
             />
             <PhotoCard
-              title="лазает по деревьям"
+              title="лазает по деревьям 🌳"
               fluid={data.alenaTree.childImageSharp.fluid}
             />
             <PhotoCard
-              title="готовится нырять"
+              title="готовится нырять 🤿"
               fluid={data.alenaWaterChannel.childImageSharp.fluid}
             />
             <PhotoCard
-              title="открывает подарки"
+              title="открывает подарки 🎁"
               fluid={data.alenaOpenPresents.childImageSharp.fluid}
             />
             <PhotoCard
-              title="Белоснежка"
+              title="Белоснежка ❄️"
               fluid={data.alenaSnowwhite.childImageSharp.fluid}
             />
             <PhotoCard
@@ -204,92 +223,100 @@ const IndexPage: React.FC = () => {
               fluid={data.alenaSwing.childImageSharp.fluid}
             />
             <PhotoCard
-              title="щупает курочек"
+              title="щупает курочек 🐔"
               fluid={data.alenaTouchingChicken.childImageSharp.fluid}
             />
             <PhotoCard
-              title="с Адой"
+              title="позирует c 😼"
               fluid={data.alenaWithCat2.childImageSharp.fluid}
             />
           </Column>
         </Grid>
         <Column>
-          <Header>ВМЕСТЕ</Header>
+          <Header>ВМЕСТЕ 👩‍❤️‍👨</Header>
           <PhotoCard
-            title="позируют"
+            title="на отдыхе 🌴"
             fluid={data.togetherTipsHat.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="ножки"
+            title="ножки 👣"
             fluid={data.feetStPeterburg.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="фантазируют"
+            title="любят мороженное 🍨"
             fluid={data.skullMonro.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="высокогорный кусь"
+            title="высокогорный кусь 😗"
             fluid={data.togetherCheekKiss.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="вдохновляются поэзией"
+            title="вдохновляются поэзией 🗽"
             fluid={data.togetherMedniyVsadnik.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="учатся у титанов"
+            title="учатся у титанов 📜"
             fluid={data.togetherTitans.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="на вершине мира"
+            title="на вершине мира ⛰️"
             fluid={data.togetherClouds.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="шопятся"
+            title="шопятся 🛍️"
             fluid={data.togetherAfimall.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="кормят уток"
+            title="кормят уток 🦆"
             fluid={data.togetherFeedingDucks.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="любуются цветами"
+            title="любуются цветами 💐"
             fluid={data.togetherSelfieFlowers.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="гуляют по Питеру"
+            title="гуляют по Питеру 🏙️"
             fluid={data.togetherStPeterburg.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="улыбаются"
+            title="улыбаются 😃"
             fluid={data.togetherHappyFaces.childImageSharp.fluid}
             wide
           />
-          <video
-            preload="auto"
-            muted
-            autoPlay
-            loop
-            poster={data.togetherHappyFaces}
-            style={{
-              width: '100%',
-              maxWidth: '800px',
-              borderRadius: '10px',
-            }}
-          >
-            <source src="img/video/video.webm" type="video/webm" />
-            <source src={data.togetherOffendedMp4.publicURL} type="video/mp4" />
-          </video>
+          <div style={{ position: 'relative' }}>
+            <video
+              preload="auto"
+              muted
+              autoPlay
+              loop
+              poster={data.togetherHappyFaces}
+              style={{
+                width: '100%',
+                maxWidth: '800px',
+                borderRadius: '10px',
+              }}
+            >
+              <source src="img/video/video.webm" type="video/webm" />
+              <source
+                src={data.togetherOffendedMp4.publicURL}
+                type="video/mp4"
+              />
+            </video>
+            <Wrapper>
+              <Paragraph>🙄</Paragraph>
+            </Wrapper>
+          </div>
         </Column>
       </Main>
       <Footer>
@@ -302,6 +329,9 @@ const IndexPage: React.FC = () => {
           }}
         >
           <p>Все права защищены © {new Date().getFullYear()}</p>
+          <StyledLink to="/ada-the-cat">
+            А еще у них есть кошка программист!{' '}
+          </StyledLink>
         </div>
       </Footer>
     </div>
