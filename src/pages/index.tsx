@@ -29,6 +29,12 @@ const Paragraph = styled.p`
   margin: 0;
 `
 
+const SimpleText = styled.p`
+  padding: 0.5rem 0.5rem;
+  color: white;
+  margin: 0;
+`
+
 const Hero = styled.div`
   position: relative;
   display: flex;
@@ -58,16 +64,14 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-direction: row;
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 const Footer = styled.footer`
+  width: 100vw;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(7, 7, 115, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
   margin-top: 1.45rem;
 `
 
@@ -307,7 +311,6 @@ const IndexPage: React.FC = () => {
                 borderRadius: '10px',
               }}
             >
-              <source src="img/video/video.webm" type="video/webm" />
               <source
                 src={data.togetherOffendedMp4.publicURL}
                 type="video/mp4"
@@ -328,10 +331,22 @@ const IndexPage: React.FC = () => {
             color: 'white',
           }}
         >
-          <p>Все права защищены © {new Date().getFullYear()}</p>
-          <StyledLink to="/ada-the-cat">
-            А еще у них есть кошка программист!{' '}
+          <StyledLink
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'baseline',
+              textDecoration: 'underline',
+            }}
+            to="/ada-the-cat"
+          >
+            <span style={{ fontSize: '1.2rem' }}>
+              А еще у нас есть кошка-программист!
+            </span>
           </StyledLink>
+          <SimpleText>
+            Все права защищены © {new Date().getFullYear()}
+          </SimpleText>
         </div>
       </Footer>
     </div>
@@ -565,7 +580,7 @@ const indexPageQuery = graphql`
     togetherOffendedMp4: file(relativePath: { eq: "together-offended.mp4" }) {
       publicURL
     }
-    togetherClouds: file(relativePath: { eq: "together-clouds.jpeg" }) {
+    togetherClouds: file(relativePath: { eq: "together-clouds.jpg" }) {
       publicURL
       childImageSharp {
         fluid(maxWidth: 800) {

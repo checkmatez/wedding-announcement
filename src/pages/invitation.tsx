@@ -128,9 +128,9 @@ const InvitationPage: React.FC = () => {
           </Row>
           <Header>Поддержите нас на этом ярком и красивом празднике!</Header>
           <ColorsContainer>
-            <Circle style={{ backgroundColor: `hsl(33, 100%, 88%)` }} />
+            <Circle style={{ backgroundColor: `hsl(32, 13%, 53%)` }} />
             <Circle style={{ backgroundColor: `hsl(34, 57%, 70%)` }} />
-            <Circle style={{ backgroundColor: `hsl(54, 77%, 75%)` }} />
+            <Circle style={{ backgroundColor: `hsl(54,56%, 80%)` }} />
             <Circle style={{ backgroundColor: `hsl(39, 54%, 43%)` }} />
             <Circle style={{ backgroundColor: `hsl(182, 25%, 50%)` }} />
             <Circle style={{ backgroundColor: `hsl(4, 82%, 56%)` }} />

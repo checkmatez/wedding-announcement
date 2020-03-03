@@ -7,6 +7,28 @@ import { PhotoCard } from '../components/photo-card'
 import '../components/reset.css'
 import SEO from '../components/seo'
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  height: 40px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`
+
+const Paragraph = styled.p`
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px black;
+  margin: 0;
+`
+
 const Hero = styled.div`
   position: relative;
   display: flex;
@@ -36,16 +58,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-direction: row;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const SimpleText = styled.p`
+  padding: 0.5rem 0.5rem;
+  color: white;
+  margin: 0;
 `
 
 const Footer = styled.footer`
+  width: 100vw;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(7, 7, 115, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
   margin-top: 1.45rem;
 `
 
@@ -92,32 +118,100 @@ const AdaTheCatPage: React.FC = () => {
   return (
     <div>
       <SEO title="Ада" />
-      {/* <StyledHeader>
-        <StyledLink to="/">
-          <Center>
-            <h2
-              style={{
-                margin: 0,
-                fontFamily: `Bad Script`,
-                letterSpacing: '2px',
-                lineHeight: '3rem',
-              }}
-            >
-              Ада Лавлейс - кошка-програмист! 🐈
-            </h2>
-          </Center>
-        </StyledLink>
-      </StyledHeader> */}
       <Column>
-        <Header>Ада Лавлейс</Header>
-        {/* <Header>
-          Ада Лавлейс - первая женщина(зачеркнуто) кошка-программист
-        </Header> */}
+        <Header>
+          <StyledLink to="https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D0%B2%D0%BB%D0%B5%D0%B9%D1%81,_%D0%90%D0%B4%D0%B0">
+            Ада Лавлейс
+          </StyledLink>
+        </Header>
         <PhotoCard
-          title="Знакомство 🐱"
+          title="Знакомлюсь с хозяином 🏠"
+          fluid={data.maxAda.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Я еще маленькая 🐱"
           fluid={data.catSmall.childImageSharp.fluid}
           wide
         />
+        <PhotoCard
+          title="Готовлюсь к броску 🐾"
+          fluid={data.catReadyToPounce.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="А так я сплю 😴"
+          fluid={data.catLyingAtTable.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Или так 🙃"
+          fluid={data.catUpsideDownSleeping.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Иногда стесняюсь ☺️"
+          fluid={data.catShyWithBall.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Такие вот ножки 🍗"
+          fluid={data.catBetweenMaxAndPillow.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Изучаю Windows 🖥️"
+          fluid={data.catPosing.childImageSharp.fluid}
+          wide
+        />
+        <PhotoCard
+          title="Почешите пузико 😺"
+          fluid={data.catUpsideDownSmirk.childImageSharp.fluid}
+          wide
+        />
+        <div style={{ position: 'relative' }}>
+          <video
+            preload="auto"
+            autoPlay
+            loop
+            poster={data.togetherHappyFaces}
+            style={{
+              width: '100%',
+              maxWidth: '800px',
+              borderRadius: '10px',
+            }}
+          >
+            <source src={data.catSadMusic.publicURL} type="video/mp4" />
+          </video>
+          <Wrapper>
+            <Paragraph>Жду хозяев из отпуска 😩</Paragraph>
+          </Wrapper>
+        </div>
+        <Footer>
+          <div
+            style={{
+              margin: `0 auto`,
+              maxWidth: 960,
+              padding: `1.45rem 1.0875rem`,
+              color: 'white',
+            }}
+          >
+            <StyledLink
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'baseline',
+                textDecoration: 'underline',
+              }}
+              to="/"
+            >
+              <span style={{ fontSize: '1.2rem' }}>На главную</span>
+            </StyledLink>
+            <SimpleText>
+              Все права защищены © {new Date().getFullYear()}
+            </SimpleText>
+          </div>
+        </Footer>
       </Column>
     </div>
   )
@@ -125,12 +219,77 @@ const AdaTheCatPage: React.FC = () => {
 
 const adaPageQuery = graphql`
   query {
+    catBetweenMaxAndPillow: file(
+      relativePath: { eq: "cat-between-max-and-pillow.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catLyingAtTable: file(relativePath: { eq: "cat-lying-at-table.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catPosing: file(relativePath: { eq: "cat-posing.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catReadyToPounce: file(relativePath: { eq: "cat-ready-to-pounce.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catShyWithBall: file(relativePath: { eq: "cat-shy-with-ball.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     catSmall: file(relativePath: { eq: "cat-small.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid
         }
       }
+    }
+    catUpsideDownSleeping: file(
+      relativePath: { eq: "cat-upside-down-sleeping.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catUpsideDownSmirk: file(
+      relativePath: { eq: "cat-upside-down-smirk.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxAda: file(relativePath: { eq: "max-ada.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catSadMusic: file(relativePath: { eq: "cat-sad-music.mp4" }) {
+      publicURL
     }
   }
 `
