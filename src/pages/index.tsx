@@ -70,7 +70,7 @@ const StyledLink = styled(Link)`
 `
 
 const Footer = styled.footer`
-  width: 100vw;
+  width: 100%;
   background: rgb(2, 0, 36);
   margin-top: 1.45rem;
 `
@@ -326,7 +326,7 @@ const IndexPage: React.FC = () => {
         <div
           style={{
             margin: `0 auto`,
-            maxWidth: 960,
+            maxWidth: 600,
             padding: `1.45rem 1.0875rem`,
             color: 'white',
           }}
@@ -340,7 +340,7 @@ const IndexPage: React.FC = () => {
             }}
             to="/ada-the-cat"
           >
-            <span style={{ fontSize: '1.2rem' }}>
+            <span style={{ fontSize: '1.5rem' }}>
               А еще у нас есть кошка-программист!
             </span>
           </StyledLink>

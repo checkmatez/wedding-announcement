@@ -1,5 +1,4 @@
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -29,38 +28,20 @@ const Paragraph = styled.p`
   margin: 0;
 `
 
-const Hero = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100%;
-  overflow: hidden;
-  z-index: 1;
-`
-
-const StyledHeader = styled.header`
-  z-index: 9;
-  width: 100%;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-`
-
 const StyledLink = styled(Link)`
   padding: 0.5rem 0.5rem;
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
   display: flex;
   flex-direction: row;
-  &:hover {
-    text-decoration: underline;
-  }
+`
+
+const ExternalLink = styled.a`
+  padding: 0.5rem 0.5rem;
+  color: white;
+  text-decoration: underline;
+  display: inline-flex;
+  flex-direction: row;
 `
 
 const SimpleText = styled.p`
@@ -70,7 +51,7 @@ const SimpleText = styled.p`
 `
 
 const Footer = styled.footer`
-  width: 100vw;
+  width: 100%;
   background: rgb(2, 0, 36);
   margin-top: 1.45rem;
 `
@@ -99,19 +80,6 @@ const Header = styled.h1`
   text-transform: uppercase;
 `
 
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`
-
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
 const AdaTheCatPage: React.FC = () => {
   const data = useStaticQuery(adaPageQuery)
 
@@ -120,9 +88,13 @@ const AdaTheCatPage: React.FC = () => {
       <SEO title="Ада" />
       <Column>
         <Header>
-          <StyledLink to="https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D0%B2%D0%BB%D0%B5%D0%B9%D1%81,_%D0%90%D0%B4%D0%B0">
+          <ExternalLink
+            href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B0%D0%B2%D0%BB%D0%B5%D0%B9%D1%81,_%D0%90%D0%B4%D0%B0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Ада Лавлейс
-          </StyledLink>
+          </ExternalLink>
         </Header>
         <PhotoCard
           title="Знакомлюсь с хозяином 🏠"
@@ -187,32 +159,24 @@ const AdaTheCatPage: React.FC = () => {
             <Paragraph>Жду хозяев из отпуска 😩</Paragraph>
           </Wrapper>
         </div>
-        <Footer>
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: 960,
-              padding: `1.45rem 1.0875rem`,
-              color: 'white',
-            }}
-          >
-            <StyledLink
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'baseline',
-                textDecoration: 'underline',
-              }}
-              to="/"
-            >
-              <span style={{ fontSize: '1.2rem' }}>На главную</span>
-            </StyledLink>
-            <SimpleText>
-              Все права защищены © {new Date().getFullYear()}
-            </SimpleText>
-          </div>
-        </Footer>
       </Column>
+      <Footer>
+        <div
+          style={{
+            margin: `0 auto`,
+            maxWidth: 600,
+            padding: `1.45rem 1.0875rem`,
+            color: 'white',
+          }}
+        >
+          <StyledLink to="/">
+            <span style={{ fontSize: '1.5rem' }}>На главную</span>
+          </StyledLink>
+          <SimpleText>
+            Все права защищены © {new Date().getFullYear()}
+          </SimpleText>
+        </div>
+      </Footer>
     </div>
   )
 }

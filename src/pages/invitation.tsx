@@ -3,7 +3,6 @@ import Img from 'gatsby-image'
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { PhotoCard } from '../components/photo-card'
 import '../components/reset.css'
 import SEO from '../components/seo'
 
@@ -13,6 +12,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-direction: row;
+`
+
+const ExternalLink = styled.a`
+  padding: 0.5rem 0.5rem;
+  color: white;
+  text-decoration: underline;
+  display: inline-flex;
+  flex-direction: row;
+`
+
+const SimpleText = styled.p`
+  padding: 0.5rem 0.5rem;
+  color: white;
+  margin: 0;
 `
 
 const MainHeader = styled.h1`
@@ -29,7 +42,7 @@ const MainHeader = styled.h1`
 
 const Header = styled.h1`
   font-family: Marck Script, cursive;
-  margin: 20px;
+  margin: 20px 10px;
   letter-spacing: 1px;
   max-width: 600px;
   text-align: center;
@@ -37,6 +50,10 @@ const Header = styled.h1`
   @media (max-width: 600px) {
     font-size: 2rem;
   }
+`
+
+const HeaderLeft = styled(Header)`
+  text-align: left;
 `
 
 const Main = styled.main`
@@ -59,7 +76,6 @@ const ColorsContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
 `
 
 const Circle = styled.div`
@@ -67,6 +83,14 @@ const Circle = styled.div`
   height: 42px;
   border-radius: 50%;
   margin: 4px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+
+  @media (min-width: 600px) {
+    width: 60px;
+    height: 60px;
+  }
 `
 
 const Footer = styled.footer`
@@ -77,6 +101,7 @@ const Footer = styled.footer`
 
 const Content = styled.div`
   margin: 0 auto;
+  padding-top: 20px;
   max-width: 600px;
 `
 
@@ -86,7 +111,6 @@ const Columns = styled.div`
   justify-content: space-between;
 `
 
-// justify-content: space-between;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -100,33 +124,106 @@ const InvitationPage: React.FC = () => {
     <>
       <SEO title="Приглашение" />
       <Main>
+        <Img
+          fluid={data.hollywood.childImageSharp.fluid}
+          style={{
+            width: '100%',
+          }}
+        />
         <Content>
-          <Img
-            fluid={data.vectorFlowers2.childImageSharp.fluid}
-            style={{
-              width: '40%',
-              backgroundColor: 'hsla(201, 55%, 14%, 1);',
-            }}
-          />
-          <MainHeader>Макс Давыдов</MainHeader>
+          <MainHeader style={{ color: 'hsla(40,87%,54%)' }}>
+            Макс Давыдов
+          </MainHeader>
           <MainHeader style={{ fontSize: '3rem' }}>и</MainHeader>
           <MainHeader>Алёна Харламова</MainHeader>
-          <Header>приглашают вас на главное событие лета 2020!</Header>
+          <Header>приглашают тебя на свадьбу в Голливуд 🎥</Header>
           <Row>
-            <Header>Где?</Header>
-            <Header style={{ marginLeft: 'auto', textAlign: 'end' }}>
-              Москва, ​Ленинский проспект, 44
+            <HeaderLeft>Где?</HeaderLeft>
+            <Header
+              style={{
+                marginLeft: 'auto',
+                textAlign: 'end',
+                color: 'hsla(40,87%,54%)',
+              }}
+            >
+              Москва, ​ Ленинский проспект, 44
             </Header>
           </Row>
           <Row>
-            <Header>Когда?</Header>
-            <Header style={{ marginLeft: 'auto' }}>27 июня 2020</Header>
+            <HeaderLeft>Когда?</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              27-28 июня
+            </Header>
+          </Row>
+          <Header>Программа 27.06</Header>
+          <Row>
+            <HeaderLeft>Сбор гостей</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              10:50
+            </Header>
           </Row>
           <Row>
-            <Header>Начало в</Header>
-            <Header style={{ marginLeft: 'auto' }}>11:00</Header>
+            <HeaderLeft>Торжественная регистрация</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              11:00
+            </Header>
           </Row>
-          <Header>Поддержите нас на этом ярком и красивом празднике!</Header>
+          <Row>
+            <HeaderLeft>Трансфер до места</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              12:30
+            </Header>
+          </Row>
+          <Row>
+            <HeaderLeft>Фуршет</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              14:00
+            </Header>
+          </Row>
+          <Row>
+            <HeaderLeft>Банкет</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              16:00
+            </Header>
+          </Row>
+          <Row>
+            <HeaderLeft>Торт</HeaderLeft>
+            <Header style={{ marginLeft: 'auto', color: 'hsla(40,87%,54%)' }}>
+              21:00
+            </Header>
+          </Row>
+          <Header>Программа 28.06</Header>
+          <Header>
+            Свободное время в жипописном уголке! Отдыхаем, веселимся,
+            фотографируемся, играем!
+          </Header>
+          <Header>
+            Делимся впечатлениями с хэштегом{' '}
+            <Header
+              style={{
+                fontSize: '3rem',
+                fontFamily: 'cursive',
+                fontWeight: 'bold',
+                color: 'hsla(40,87%,54%)',
+              }}
+            >
+              #HDhollywood
+            </Header>
+          </Header>
+          <Img
+            fluid={data.doveOnBranch.childImageSharp.fluid}
+            style={{
+              width: '100%',
+            }}
+          />
+          <Header>
+            Обо всем необходимом мы позаботились, все что тебе нужно - это
+            придти!
+          </Header>
+          <Header>
+            <span style={{ color: 'hsla(40,87%,54%)' }}>Поддержи</span> нас
+            этими оттенками на ярком и красивом празднике!
+          </Header>
           <ColorsContainer>
             <Circle style={{ backgroundColor: `hsl(32, 13%, 53%)` }} />
             <Circle style={{ backgroundColor: `hsl(34, 57%, 70%)` }} />
@@ -136,14 +233,43 @@ const InvitationPage: React.FC = () => {
             <Circle style={{ backgroundColor: `hsl(4, 82%, 56%)` }} />
             <Circle style={{ backgroundColor: `hsl(180, 82%, 7%)` }} />
           </ColorsContainer>
+          <Header>
+            <span style={{ color: 'hsla(40,87%,54%)' }}>Подпишись</span> на наш
+            канал в Телеграмме, посвященный этому мероприятию и{' '}
+            <ExternalLink
+              href="https://t.me/joinchat/AAAAAFUQTdYnUMENowU-7Q"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              будь в курсе наших новостей и планов!
+            </ExternalLink>
+          </Header>
         </Content>
       </Main>
       <Footer>
-        <Content>
-          <StyledLink to="/">
-            <p>На главную</p>
+        <div
+          style={{
+            margin: `0 auto`,
+            maxWidth: 600,
+            padding: `1.45rem 1.0875rem`,
+            color: 'white',
+          }}
+        >
+          <StyledLink
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'baseline',
+              textDecoration: 'underline',
+            }}
+            to="/"
+          >
+            <span style={{ fontSize: '1.5rem' }}>Узнай о нас больше!</span>
           </StyledLink>
-        </Content>
+          <SimpleText>
+            Все права защищены © {new Date().getFullYear()}
+          </SimpleText>
+        </div>
       </Footer>
     </>
   )
@@ -151,16 +277,16 @@ const InvitationPage: React.FC = () => {
 
 const invitationPageQuery = graphql`
   query {
-    vectorFlowers2: file(relativePath: { eq: "vector-flowers-3.png" }) {
+    hollywood: file(relativePath: { eq: "once-upon-time-in-hollywood.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    colors: file(relativePath: { eq: "colors.png" }) {
+    doveOnBranch: file(relativePath: { eq: "dove-on-branch-white.png" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }
