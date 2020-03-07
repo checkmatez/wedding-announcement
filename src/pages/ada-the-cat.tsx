@@ -144,6 +144,7 @@ const AdaTheCatPage: React.FC = () => {
         <div style={{ position: 'relative' }}>
           <video
             preload="auto"
+            muted
             autoPlay
             loop
             poster={data.togetherHappyFaces}
