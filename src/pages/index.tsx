@@ -147,12 +147,7 @@ const IndexPage: React.FC = () => {
       </StyledHeader>
       <Main>
         <Hero>
-          <video
-            preload="auto"
-            muted
-            autoPlay
-            loop
-            poster={data.togetherHappyFaces.childImageSharp.fluid}
+          <iframe
             style={{
               position: 'absolute',
               top: '50%',
@@ -164,9 +159,11 @@ const IndexPage: React.FC = () => {
               width: 'auto',
               height: 'auto',
             }}
-          >
-            <source src={data.proposalMp4.publicURL} type="video/mp4" />
-          </video>
+            src="https://www.youtube.com/embed/zpt65FIcxUs?autoplay=1&controls=1&disablekb=1&fs=0&hl=ru-Ru&loop=1&mute=1&modestbranding=1&iv_load_policy=3"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </Hero>
         <Grid>
           <Column>
@@ -176,15 +173,15 @@ const IndexPage: React.FC = () => {
               fluid={data.maxArcher.childImageSharp.fluid}
             />
             <PhotoCard
-              title="спасает кошечек 😸"
+              title="Спасает кошечек 😸"
               fluid={data.maxAda.childImageSharp.fluid}
             />
             <PhotoCard
-              title="курит сигары 🚬"
+              title="Курит сигары 🚬"
               fluid={data.maxCigar.childImageSharp.fluid}
             />
             <PhotoCard
-              title="гоняет на джипах 🚗"
+              title="Гоняет на джипах 🚗"
               fluid={data.maxDriving.childImageSharp.fluid}
             />
             <PhotoCard
@@ -192,30 +189,30 @@ const IndexPage: React.FC = () => {
               fluid={data.maxPotter.childImageSharp.fluid}
             />
             <PhotoCard
-              title="прогуливается 🚶‍♂️"
+              title="Прогуливается 🚶‍♂️"
               fluid={data.maxPalm.childImageSharp.fluid}
             />
           </Column>
           <Column>
             <Header>Она 💃</Header>
             <PhotoCard
-              title="с цветочками 🌺"
+              title="С цветочками 🌺"
               fluid={data.alenaFlowers.childImageSharp.fluid}
             />
             <PhotoCard
-              title="радуется солнышку ☀️"
+              title="Радуется солнышку ☀️"
               fluid={data.alenaKazanskiySobor.childImageSharp.fluid}
             />
             <PhotoCard
-              title="лазает по деревьям 🌳"
+              title="Лазает по деревьям 🌳"
               fluid={data.alenaTree.childImageSharp.fluid}
             />
             <PhotoCard
-              title="готовится нырять 🤿"
+              title="Готовится нырять 🤿"
               fluid={data.alenaWaterChannel.childImageSharp.fluid}
             />
             <PhotoCard
-              title="открывает подарки 🎁"
+              title="Открывает подарки 🎁"
               fluid={data.alenaOpenPresents.childImageSharp.fluid}
             />
             <PhotoCard
@@ -223,15 +220,15 @@ const IndexPage: React.FC = () => {
               fluid={data.alenaSnowwhite.childImageSharp.fluid}
             />
             <PhotoCard
-              title="качается 💪"
+              title="Качается 💪"
               fluid={data.alenaSwing.childImageSharp.fluid}
             />
             <PhotoCard
-              title="щупает курочек 🐔"
+              title="Щупает курочек 🐔"
               fluid={data.alenaTouchingChicken.childImageSharp.fluid}
             />
             <PhotoCard
-              title="позирует c 😼"
+              title="Позирует c 😼"
               fluid={data.alenaWithCat2.childImageSharp.fluid}
             />
           </Column>
@@ -239,62 +236,57 @@ const IndexPage: React.FC = () => {
         <Column>
           <Header>ВМЕСТЕ 👩‍❤️‍👨</Header>
           <PhotoCard
-            title="на отдыхе 🌴"
+            title="На отдыхе 🌴"
             fluid={data.togetherTipsHat.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="ножки 👣"
+            title="Ножки 👣"
             fluid={data.feetStPeterburg.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="любят мороженное 🍨"
+            title="Любят мороженное 🍨"
             fluid={data.skullMonro.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="высокогорный кусь 😗"
+            title="Высокогорный кусь 😗"
             fluid={data.togetherCheekKiss.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="вдохновляются поэзией 🗽"
+            title="Вдохновляются поэзией 🗽"
             fluid={data.togetherMedniyVsadnik.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="учатся у титанов 📜"
+            title="Учатся у титанов 📜"
             fluid={data.togetherTitans.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="на вершине мира ⛰️"
+            title="На вершине мира ⛰️"
             fluid={data.togetherClouds.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="шопятся 🛍️"
+            title="Шопятся 🛍️"
             fluid={data.togetherAfimall.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="кормят уток 🦆"
+            title="Кормят уток 🦆"
             fluid={data.togetherFeedingDucks.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="любуются цветами 💐"
+            title="Любуются цветами 💐"
             fluid={data.togetherSelfieFlowers.childImageSharp.fluid}
             wide
           />
           <PhotoCard
-            title="гуляют по Питеру 🏙️"
-            fluid={data.togetherStPeterburg.childImageSharp.fluid}
-            wide
-          />
-          <PhotoCard
-            title="улыбаются 😃"
+            title="Улыбаются 😃"
             fluid={data.togetherHappyFaces.childImageSharp.fluid}
             wide
           />
@@ -536,15 +528,6 @@ const indexPageQuery = graphql`
     }
     togetherSelfieFlowers: file(
       relativePath: { eq: "together-selfie-flowers.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    togetherStPeterburg: file(
-      relativePath: { eq: "together-st-peterburg.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 800) {

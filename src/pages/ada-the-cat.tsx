@@ -141,6 +141,11 @@ const AdaTheCatPage: React.FC = () => {
           fluid={data.catUpsideDownSmirk.childImageSharp.fluid}
           wide
         />
+        <PhotoCard
+          title="Такая была пижама 👚"
+          fluid={data.catPajamaPortrait.childImageSharp.fluid}
+          wide
+        />
         <div style={{ position: 'relative' }}>
           <video
             preload="auto"
@@ -194,6 +199,13 @@ const adaPageQuery = graphql`
       }
     }
     catLyingAtTable: file(relativePath: { eq: "cat-lying-at-table.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    catPajamaPortrait: file(relativePath: { eq: "cat-pajama-portrait.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid

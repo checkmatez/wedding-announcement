@@ -34,7 +34,7 @@ const MainHeader = styled.h1`
   letter-spacing: 1px;
   max-width: 600px;
   text-align: center;
-
+  color: hsla(40, 87%, 54%);
   @media (max-width: 600px) {
     font-size: 3rem;
   }
@@ -131,10 +131,10 @@ const InvitationPage: React.FC = () => {
           }}
         />
         <Content>
-          <MainHeader style={{ color: 'hsla(40,87%,54%)' }}>
-            Макс Давыдов
+          <MainHeader>Макс Давыдов</MainHeader>
+          <MainHeader style={{ fontSize: '3rem', color: 'white' }}>
+            и
           </MainHeader>
-          <MainHeader style={{ fontSize: '3rem' }}>и</MainHeader>
           <MainHeader>Алёна Харламова</MainHeader>
           <Header>приглашают тебя на свадьбу в Голливуд 🎥</Header>
           <Row>
@@ -218,7 +218,7 @@ const InvitationPage: React.FC = () => {
           />
           <Header>
             Обо всем необходимом мы позаботились, все что тебе нужно - это
-            придти!
+            прийти!
           </Header>
           <Header>
             <span style={{ color: 'hsla(40,87%,54%)' }}>Поддержи</span> нас
