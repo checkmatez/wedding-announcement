@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Свадьба 🤵🏼 Макса и Алёнки 👰🏼`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Персональный уголок Макса и Алёнки 🏠`,
     author: `@gatsbyjs`,
   },
   plugins: [
