@@ -579,9 +579,6 @@ const indexPageQuery = graphql`
         }
       }
     }
-    proposalMp4: file(relativePath: { eq: "proposal.mp4" }) {
-      publicURL
-    }
   }
 `
 

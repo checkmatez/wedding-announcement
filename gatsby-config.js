@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Свадьба 🤵🏼 Макса и Алёнки 👰🏼`,
     description: `Персональный уголок Макса и Алёнки 🏠`,
-    author: `@gatsbyjs`,
+    author: `@checkm88`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
